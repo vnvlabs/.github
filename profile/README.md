@@ -8,15 +8,15 @@ The VnV toolkit uses DATA extracted during the simulation to generate an interac
 The toolkit supports the full range of VERIFICATION AND VALIDATION PROCESSES:
 
 Features include:
-   – A Builtin Unit Testing Framework.
-   – Function level Integration Testing (configurable at runtime by the end-user).  
-   – Application level Integration Testing.
-   – Provenance Tracking. 
-   – Input file validation
-   – Live Data Visualization using real simulation data. 
-   – Performance Monitoring   
-   – Uncertainty Quantification and Sensitivity Analysis
-   – A Browser based Execution and Report Viewing GUI.  
+   - A Builtin Unit Testing Framework.
+   - Function level Integration Testing (configurable at runtime by the end-user).  
+   - Application level Integration Testing.
+   - Provenance Tracking. 
+   - Input file validation
+   - Live Data Visualization using real simulation data. 
+   - Performance Monitoring   
+   - Uncertainty Quantification and Sensitivity Analysis
+   - A Browser based Execution and Report Viewing GUI.  
  
 The toolkit includes an extensive Browser based GUI for simulation design, execution and analysis: The features of the GUI include:
 
