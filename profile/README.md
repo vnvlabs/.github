@@ -57,3 +57,50 @@ Notes:
    5. A universal volume is created for each user. This volume is mounted in the /data/ directory of every container launched by the user. This lets users transfer data between containers instantly. 
    6. All the containers run on the same machine -- the machine that is hosting the webserver. In the future, the SAAS deployment will support docker swarm and/or kubernetes to run containers using remote resources.
    7. Each User is given an account balance of $100 when they create an account. THIS BALANCE IS FAKE. It is just there as a mechanism for demostrating the containers abilitiy to track the uptime of each users containers. 
+
+# Integrate VnV Into your code base
+
+The process of integrating VnV into your codebase depends on the build system you are using. 
+
+  ## CMAKE 
+   
+  The Core VnV library uses a CMAKE build system. As part of that install, it creates the appropriate 
+  cmake files such that the library can be picked up using the standard CMAKE find_package function. Some examples include:
+  
+   - https://github.com/vnvlabs/heat
+   - https://github.com/vnvlabs/simple
+   - https://github.com/vnvlabs/asgard
+   - https://github.com/vnvlabs/hypre
+   - https://github.com/vnvlabs/mfem
+
+  ## Other:
+  
+  It is a little bit harder to get VnV integrated into an autotools project, primarily because of the
+  code generation step. However, it can be done. Some examples include:
+  
+  - https://github.com/vnvlabs/libmesh (Autotools project)
+  - https://github.com/vnvlabs/petsc (Custom build system)
+  - https://github.com/vnvlabs/xsbench (GNU Make)
+ 
+# Project Layout:
+
+Whereever possible, we have broken the codebase into single priority repositories. The main repos are:
+
+   - vnvlabs A single cactch all repo containing submodule links to the various other repositories.
+   - vnv : The core vnv API and runtime. 
+   - gui : The flask implementation of the VnV Graphical user interface
+   - server: A simple flask based reverse proxy and html front end for SAAS style deployment
+
+# License:
+
+Each repository contains its own licensing information. FFor the most part, all vnvlabs code (the core api,
+the gui, the SAAS server and a few of the application examples) are released using the three clause BSD license. 
+
+This repository includes a number of forks for third party software. All software forks (moose,libmesh,petsc,hypre,mfem,asgard,
+swfft,xs-bench,miniamr,etc.) are simply exist only for demonstration and testing purposes. We will attempt to keep these forks up
+to date with the upstream repositories, however, we make no claims that they are up to date at any given time. The hope is that our VnV 
+modifications will eventually make their way into the upstream codebases, removing the need for the vnvlabs forks. 
+   
+   
+   
+   
