@@ -29,6 +29,10 @@ The toolkit includes an extensive Browser based GUI for simulation design, execu
 
 ## Try it out:
 
+### Live Demo:
+
+A live demo is available at https://vnvlabs.com. Ping @beon9273 for the authorization code required to create an account. Better yet -- follow the instructions under the section "Software As A Service" to launch your own server on your localhost machine. vnvlabs.com was deployed using a superset of those same instructions. 
+
 ### A Simple Demo Application.
 
 The following docker command will launch a VnV container running on localhost pre installed with 
@@ -57,6 +61,28 @@ Notes:
    5. A universal volume is created for each user. This volume is mounted in the /data/ directory of every container launched by the user. This lets users transfer data between containers instantly. 
    6. All the containers run on the same machine -- the machine that is hosting the webserver. In the future, the SAAS deployment will support docker swarm and/or kubernetes to run containers using remote resources.
    7. Each User is given an account balance of $100 when they create an account. THIS BALANCE IS FAKE. It is just there as a mechanism for demostrating the containers abilitiy to track the uptime of each users containers. 
+
+### Configuration.
+
+The best way to configure the server is to copy the template given in the https://github.com/vnvlabs/deploy. This repo includes a script that can be used to 
+build a thin docker layer around the vnvlabs/serve docker image. 
+
+To run this script call
+
+    git clone https://github.com/vnvlabs/deploy
+    cd deploy
+    <edit config.json>
+    ./deploy config.json
+ 
+### SSL 
+
+SSL is pretty much a requirement these days. For vnvlabs.com we use nginx to handle the ssl configuration. https://github.com/vnvlabs/serve/nginx/vnv.conf provides a simple nginx config file that can be used to setup a reverse proxy in front of the vnv server. This configuration handles the forwarding all all vnv calls as well as the websockets needed by paraview and eclipse theia. The following commands (probably run as sudo) will get you going. 
+
+
+   cp vnv.conf /etc/nginx/sites-enabled/
+   service nginx restart 
+   certbot --nginx -d vnvlabs.com  
+
 
 # Integrate VnV Into your code base
 
