@@ -72,7 +72,7 @@ To run this script call
     git clone https://github.com/vnvlabs/deploy
     cd deploy
     <edit config.json>
-    ./deploy config.json
+    ./deploy latest config.json
  
 ### SSL 
 
