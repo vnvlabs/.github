@@ -53,6 +53,8 @@ up and shutting down of containers.
 
     docker run --rm -it --network="host" -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/vnvlabs/serve
 
+Disclaimer: Mounting the /var/run/docker.sock socket inside container gives the container full docker privledges. This equates to providing super user privleges to the processes running within the container. This privledge is requried to support launching docker containers on the host from within another container. We do not do anything untoward; however, it is always prudent to verify the contents of any application for which you are providing super user privledges.  Be safe out there! 
+
 Notes:
    1. The default username is Admin. The password will be printed to standard out during initialization. 
    2. The container uses a docker-in-docker scheme to launch containers on behalf of the users. 
